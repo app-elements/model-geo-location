@@ -1,0 +1,26 @@
+{
+  "name": "model-geo-location",
+  "version": "0.0.0",
+  "description": "A CanJS Map that abstracts and standardizes the browser geolocation API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/app-elements/model-geo-location.git"
+  },
+  "keywords": [
+    "canjs",
+    "model",
+    "map",
+    "geolocation",
+    "schema"
+  ],
+  "author": "Juan Orozco <hi@juanorozco.com> (http://juanorozco.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/app-elements/model-geo-location/issues"
+  },
+  "homepage": "https://github.com/app-elements/model-geo-location#readme"
+}
