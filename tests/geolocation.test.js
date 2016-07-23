@@ -5,23 +5,26 @@ import 'steal-mocha';
 import Geolocation from '../geolocation';
 
 const expect = chai.expect;
-let geolocation;
+let geo;
 
 describe('Geolocation model', () => {
     describe('when inited', () => {
-        beforeEach(() => {
-            geolocation = new Geolocation();
-        });
         describe('when geolocation api does not exist', () => {
+            beforeEach(() => {
+                geo = new Geolocation({navigator: {geolocation: true}});
+            });
             // TODO: Need to stub navigator api
-            xit('apiAvailable is true', () => {
-                expect(geolocation.attr('apiAvailable')).to.be.true;
+            it('apiAvailable is true', () => {
+                expect(geo.attr('apiAvailable')).to.equal(true);
             });
         });
 
         describe('when geolocation api exists', () => {
-            it('apiAvailable is true', () => {
-                expect(geolocation.attr('apiAvailable')).to.be.false;
+            beforeEach(() => {
+                geo = new Geolocation({navigator: {}});
+            });
+            it('apiAvailable is false', () => {
+                expect(geo.attr('apiAvailable')).to.equal(false);
             });
         });
     });
