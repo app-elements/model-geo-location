@@ -83,7 +83,8 @@
       "no-lonely-if": 0,
       "no-else-return": 0,
       "spaced-comment": 0,
-      "no-warning-comments": 0
+      "no-warning-comments": 0,
+      "babel/object-shorthand": 0
     },
     "globals": [
       "steal",

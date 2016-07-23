@@ -12,7 +12,7 @@ let coords;
 describe('Coordinates Map', () => {
     describe('when inited', () => {
         beforeEach(() => {
-            coords = new Coords({ test: true });
+            coords = new Coords({test: true});
         });
         describe('has default properties', () => {
             it('isEmpty', () => {
@@ -22,22 +22,21 @@ describe('Coordinates Map', () => {
             });
             it('accuracy', () => {
                 const val = coords.attr('accuracy');
-                debugger;
                 expect(val).to.be.a('number');
-                expect(val).to.equal(0);
+                expect(val).to.equal(Infinity);
             });
             it('altitude', () => {
                 const val = coords.attr('altitude');
-                expect(val).to.be.a('number');
-                expect(val).to.equal(0);
+                // expect(val).to.be.a('number');
+                expect(val).to.equal(undefined);
             });
             it('altitudeAccuracy', () => {
                 const val = coords.attr('altitudeAccuracy');
-                expect(val).to.equal(null);
+                expect(val).to.equal(undefined);
             });
             it('heading', () => {
                 const val = coords.attr('heading');
-                expect(val).to.equal(null);
+                expect(val).to.equal(undefined);
             });
             it('latitude', () => {
                 const val = coords.attr('latitude');
@@ -51,8 +50,9 @@ describe('Coordinates Map', () => {
             });
             it('speed', () => {
                 const val = coords.attr('speed');
-                expect(val).to.be.a('number');
-                expect(val).to.equal(0);
+                expect(val).to.equal(undefined);
+                // expect(val).to.be.a('number');
+                // expect(val).to.equal(0);
             });
             it('timestamp', () => {
                 const val = coords.attr('timestamp');

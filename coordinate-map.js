@@ -13,7 +13,10 @@ export default can.Map.extend({
             value: true,
             type: 'boolean'
         },
-        accuracy: {},
+        accuracy: {
+            type: 'number',
+            value: Infinity
+        },
         altitude: {
             type: 'number'
         },
@@ -35,7 +38,8 @@ export default can.Map.extend({
                 }
 
                 return resp;
-            }
+            },
+            value: 0
         },
         longitude: {
             // Make sur it is a number and has a specific precision
@@ -53,13 +57,15 @@ export default can.Map.extend({
                 }
 
                 return resp;
-            }
+            },
+            value: 0
         },
         speed: {
             type: 'number'
         },
         timestamp: {
-            type: 'number'
+            type: 'number',
+            value: 0
         },
         watchId: {
             value: -1,
@@ -67,7 +73,7 @@ export default can.Map.extend({
         },
         isWatch: {
             type: 'boolean',
-            get: () => {
+            get: function () {
                 return this.attr('watchId') > -1;
             }
         }
