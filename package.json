@@ -1,10 +1,19 @@
 {
-  "name": "model-geo-location",
+  "name": "model-geolocation",
   "version": "0.0.0",
   "description": "A CanJS Map that abstracts and standardizes the browser geolocation API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./bin/build.js",
+    "develop": "http-server -c-1 -o -p 8001",
+    "lint": "xo",
+    "test": "xo && testee --browsers firefox test.html",
+    "prepublish": "npm run build",
+    "publish": "git push origin --tags",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "document": "documentjs"
   },
   "repository": {
     "type": "git",
@@ -22,5 +31,75 @@
   "bugs": {
     "url": "https://github.com/app-elements/model-geo-location/issues"
   },
-  "homepage": "https://github.com/app-elements/model-geo-location#readme"
+  "homepage": "https://github.com/app-elements/model-geo-location#readme",
+  "devDependencies": {
+    "can": "^2.3.24",
+    "chai": "^3.5.0",
+    "debug": "^2.2.0",
+    "documentjs": "^0.4.4",
+    "http-server": "^0.9.0",
+    "mocha": "^2.5.3",
+    "steal": "^0.16.23",
+    "steal-mocha": "0.0.3",
+    "steal-tools": "^0.16.5",
+    "testee": "^0.2.5",
+    "xo": "^0.16.0"
+  },
+  "system": {
+    "ignoreBrowser": true,
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "steal-tools",
+      "xo"
+    ],
+    "npmAlgorithm": "flat",
+    "npmDependencies": [
+      "steal-qunit"
+    ],
+    "paths": {
+      "mocha": "node_modules/mocha/mocha.js",
+      "chai": "node_modules/chai/chai.js"
+    },
+    "meta": {
+      "mocha": {
+        "format": "global",
+        "exports": "mocha"
+      },
+      "chai": {
+        "format": "global",
+        "exports": "chai"
+      }
+    }
+  },
+  "xo": {
+    "esnext": true,
+    "space": 4,
+    "envs": [
+      "node",
+      "mocha"
+    ],
+    "rules": {
+      "no-lonely-if": 0,
+      "no-else-return": 0,
+      "spaced-comment": 0,
+      "no-warning-comments": 0,
+      "babel/object-shorthand": 0
+    },
+    "globals": [
+      "steal",
+      "chai"
+    ],
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      "docs/**"
+    ],
+    "overrides": [
+      {
+        "files": "bin/**",
+        "esnext": false
+      }
+    ]
+  }
 }
