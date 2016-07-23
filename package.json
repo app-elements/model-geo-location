@@ -1,13 +1,13 @@
 {
   "name": "model-geolocation",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
   "description": "A CanJS Map that abstracts and standardizes the browser geolocation API.",
-  "main": "index.js",
+  "main": "geolocation.js",
   "scripts": {
     "build": "node ./bin/build.js",
     "develop": "http-server -c-1 -o -p 8001",
     "lint": "xo",
-    "test": "xo && testee --browsers firefox test.html",
+    "test": "xo && testee --browsers firefox tests.html",
     "prepublish": "npm run build",
     "publish": "git push origin --tags",
     "release:patch": "npm version patch && npm publish",
