@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/app-elements/model-geo-location.git"
+    "url": "git+https://github.com/app-elements/model-geolocation.git"
   },
   "keywords": [
     "canjs",
@@ -29,9 +29,9 @@
   "author": "Juan Orozco <hi@juanorozco.com> (http://juanorozco.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/app-elements/model-geo-location/issues"
+    "url": "https://github.com/app-elements/model-geolocation/issues"
   },
-  "homepage": "https://github.com/app-elements/model-geo-location#readme",
+  "homepage": "https://github.com/app-elements/model-geolocation#readme",
   "devDependencies": {
     "can": "^2.3.24",
     "chai": "^3.5.0",

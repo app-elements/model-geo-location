@@ -4,7 +4,7 @@
 
 ## Install
 
-Using npm: `npm install model-geo-location --save`
+Using npm: `npm install model-geolocation --save`
 
 Latest code can be found here: https://github.com/app-elements/model-geo-location
 
@@ -15,7 +15,7 @@ Latest code can be found here: https://github.com/app-elements/model-geo-locatio
 Initialize model
 
 ```javascript
-import Geolocation from 'model-geo-location';
+import Geolocation from 'model-geolocation';
 const geo = new Geolocation();
 ```
 
