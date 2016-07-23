@@ -1,6 +1,6 @@
 {
   "name": "model-geolocation",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A CanJS Map that abstracts and standardizes the browser geolocation API.",
   "main": "geolocation.js",
   "scripts": {
