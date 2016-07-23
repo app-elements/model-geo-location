@@ -6,7 +6,7 @@
 
 Using npm: `npm install model-geolocation --save`
 
-Latest code can be found here: https://github.com/app-elements/model-geo-location
+Latest code can be found here: https://github.com/app-elements/model-geolocation
 
 ## Usage
 
@@ -40,15 +40,18 @@ def.then( loc => {
     // Loc is raw results from geolocate method
 
     // Can use better data by accessing coords
-    geo.attr('coords'); // Same as loc but now it is an instance of the coords map
+    // Every new set of coords is pushed into this array
+    // Each item in the array is an instance of the coords map
+    geo.attr('coordsList');
 });
 ```
+
 ## Build
 
 The code is in ES6 but it can be transpiled into AMD, CommonJS, or global modules.  If you are using the NPM package, the `dist` is already available to you.
 
-- Clone to your machine: `git clone https://github.com/app-elements/model-geo-location`
-- `cd model-geo-location`
+- Clone to your machine: `git clone https://github.com/app-elements/model-geolocation`
+- `cd model-geolocation`
 - `npm install`
 - Run the build `npm run build`
 
@@ -79,10 +82,10 @@ Browse to `/tests.html`. Tests will run in the [Mocha](https://mochajs.org/) bro
 
 ## Future
 
-- Add demos
-- Convert some geolocation methods to static methods.
-- Improve API (it is a little hokey)
 - Add docs
+- Improve demos, include real life use cases
+- Convert some geolocation methods to static methods. Would be nice to fire off a method, get the data and be done. Calling a method off the constructor would support this.
+- Improve API (it is a little hokey)
 - Improve tests
 
 ## License

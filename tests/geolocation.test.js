@@ -28,4 +28,10 @@ describe('Geolocation model', () => {
             });
         });
     });
+    describe('when getCurrentLocation is called', () => {
+        it('updates the coords property');
+    });
+    describe('when watchLocation is called', () => {
+        it('adds each new location to coordsList array');
+    });
 });

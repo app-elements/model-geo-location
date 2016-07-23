@@ -1,0 +1,13 @@
+<p>Access the <code>geo</code> object in the console to see more data.</p>
+<button type="button" ($click)="watchLocation">Activate Watch</button>
+{{#coordsList}}
+    <dl>
+        <dt>Latitude</dt>
+        <dl>{{latitude}}</dl>
+    </dl>
+
+    <dl>
+        <dt>Longitude</dt>
+        <dl>{{longitude}}</dl>
+    </dl>
+{{/coordsList}}

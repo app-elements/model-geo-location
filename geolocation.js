@@ -12,20 +12,6 @@ export default can.Map.extend({
             value: navigator || {}
         },
         coords: {
-            get: function () {
-                const coordsList = this.attr('coordsList');
-                const len = coordsList.attr('length');
-                return len > 0 ? coordsList.attr(len - 1) : {};
-            },
-            set: function (coords) {
-                const coordsList = this.attr('coordsList');
-                const len = coordsList.attr('length');
-                if (len > 0) {
-                    coordsList.splice(len - 1, 1, coords);
-                } else {
-                    coordsList.push(coords);
-                }
-            },
             Type: Coords
         },
         coordsList: {
@@ -39,22 +25,19 @@ export default can.Map.extend({
             }
         }
     },
-    getLocation: () => {
-        const self = this;
+    getLocation: function () {
         const def = can.Deferred();
 
         if (this.attr('apiAvailable')) {
-            self.attr('coords', def);
+            this.attr('coords', def);
 
-            this.attr('navigator').geolocation.getCurrentPosition(loc => {
-                def.resolve(loc);
+            this.attr('navigator').geolocation.getCurrentPosition(position => {
+                position.coords.timestamp = position.timestamp;
+                this.attr('coords', position.coords);
+                this.attr('coordsList').push(position.coords);
+                def.resolve(position);
             }, err => {
                 def.reject(err);
-            });
-
-            def.then(loc => {
-                loc.coords.timestamp = loc.timestamp;
-                self.attr('coords', loc.coords);
             });
         } else {
             def.reject({message: 'Geolocation API missing'});
@@ -62,22 +45,18 @@ export default can.Map.extend({
 
         return def;
     },
-    watchLocation: () => {
-        const self = this;
+    watchLocation: function () {
         const def = can.Deferred();
         if (this.attr('apiAvailable')) {
-            self.attr('coords', def);
+            this.attr('coords', def);
 
-            const watchId = this.attr('navigator').geolocation.watchPosition(loc => {
-                def.resolve(loc);
+            const watchId = this.attr('navigator').geolocation.watchPosition(position => {
+                position.coords.timestamp = position.timestamp;
+                this.attr('coordsList').push(position.coords);
+                this.attr('coords').attr('watchId', watchId);
+                def.resolve(position);
             }, err => {
                 def.reject(err);
-            });
-
-            def.then(position => {
-                position.coords.timestamp = position.timestamp;
-                self.attr('coords', position.coords);
-                self.attr('coords').attr('watchId', watchId);
             });
         } else {
             def.reject({message: 'Geolocation API missing'});
