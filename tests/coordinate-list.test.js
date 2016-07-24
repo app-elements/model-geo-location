@@ -2,10 +2,10 @@
 /* eslint no-use-extend-native/no-use-extend-native: 0*/
 /* eslint babel/new-cap: 0*/
 
-import 'chai';
 import 'steal-mocha';
-import CoordsList from '../coordinate-list';
-import Coords from '../coordinate-map';
+import chai from 'chai';
+import CoordsList from '../lib/coordinate-list';
+import Coords from '../lib/coordinate-map';
 
 const expect = chai.expect;
 let list;
@@ -16,7 +16,7 @@ describe('Coordinates Map', () => {
             list = new CoordsList();
             list.push({});
         });
-        it('array item instance is instance of Coors map', () => {
+        it('array item instance is instance of Coords map', () => {
             expect(list.attr(0)).to.be.an.instanceof(Coords);
         });
     });

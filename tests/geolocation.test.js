@@ -1,8 +1,8 @@
 /* eslint no-extend-native: 0, no-use-extend-native/no-use-extend-native: 0, babel/new-cap: 0*/
 
-import 'chai';
 import 'steal-mocha';
-import Geolocation from '../geolocation';
+import chai from 'chai';
+import Geolocation from '../lib/geolocation';
 
 const expect = chai.expect;
 let geo;

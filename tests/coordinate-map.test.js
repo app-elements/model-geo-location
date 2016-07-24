@@ -2,9 +2,9 @@
 /* eslint no-use-extend-native/no-use-extend-native: 0*/
 /* eslint babel/new-cap: 0*/
 
-import 'chai';
 import 'steal-mocha';
-import Coords from '../coordinate-map';
+import chai from 'chai';
+import Coords from '../lib/coordinate-map';
 
 const expect = chai.expect;
 let coords;
